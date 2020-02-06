@@ -15,7 +15,7 @@ source("functions_flexnoX.R")
 #Set sample size and number of snps for this simulation
 ss = 20000    #sample size
 givs = 200 #number of snps
-reps = 1000
+reps = 4000
 
 
 output <- data.frame()
