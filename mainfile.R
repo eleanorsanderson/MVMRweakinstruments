@@ -15,7 +15,7 @@ source("functions_flexnoX.R")
 #Set sample size and number of snps for this simulation
 ss = 20000    #sample size
 givs = 200 #number of snps
-reps = 4000
+reps = 100
 
 
 output <- data.frame()
@@ -27,7 +27,7 @@ pimax = 0.1
 
 for(tau_true in c(0,0.5)){
 
-  set.seed(10)
+set.seed(as.numeric(args[1]))
   
 n=ss
 L = givs
@@ -56,7 +56,7 @@ output <- rbind(output, data.frame(sim, L, tau_true, pimax, ivest1, ivest2, olse
 #simulations with conditionally weak instruments
 for(tau_true in c(0,0.5)){
   
-  set.seed(10)
+  set.seed(as.numeric(args[1]))
 pimax = 2
 sim = 2
 delta = 0.7
@@ -83,7 +83,7 @@ output <- rbind(output, data.frame(sim, L, tau_true, pimax, ivest1, ivest2, olse
 #simulations with strong instruments 
 for(tau_true in c(0,0.5)){
   
-  set.seed(10)
+  set.seed(as.numeric(args[1]))
   pimax = 2
   sim = 2.2
   delta = 0.7
@@ -107,9 +107,9 @@ for(tau_true in c(0,0.5)){
 }
 
 
-message("filesave", sprintf("output2ex%s.csv", job_id))
+message("filesave", sprintf("output2ex%s.Rda", job_id))
+save(output, file=sprintf("output2ex%s.Rda", job_id))
 
-write.csv(output, file=sprintf("output2ex%s.csv", job_id))
 
 #simulations for table 3
 output3 <- data.frame()
@@ -144,8 +144,7 @@ output3 <- rbind(output3, data.frame(sim, L, tau_true, pimax, ivest1, ivest2, ol
 
 
 
-message("filesave", sprintf("output3ex%s.csv", job_id))
+message("filesave", sprintf("output3ex%s.Rda", job_id))
 
-write.csv(output3, file=sprintf("output3ex%s.csv", job_id))
-
+save(output3 , file=sprintf("output3ex%s.Rda", job_id))
 
