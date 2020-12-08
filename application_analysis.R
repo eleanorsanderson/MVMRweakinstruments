@@ -1,4 +1,4 @@
-##Analysis of metabolite data. 
+##Weak instrument testing and MVMR analysis of effect of metabolites on AMD. 
 #We use data of the effect sizes of each SNP on the 118 metabolites combined with the standard error of those SNP exposure associations 
 #(extracted from the GWAS results avaliable at http://www.computationalmedicine.fi/data#NMR_GWAS).(1) We also use data on the SNP associations 
 #with age related macular degeneration (AMD) from Fritsche et al 2016 (2). 

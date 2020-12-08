@@ -1,7 +1,7 @@
 
 rm(list = ls(all=TRUE))
 
-ptm <- proc.time()
+#ptm <- proc.time()
 
 library(AER)
 library(MASS)
@@ -84,5 +84,5 @@ output <- rbind(output, cbind(data.frame(sim, givs, tau_true, pimax, ivest1, ive
 message("filesave", sprintf("outputjackknife%s.Rda", job_id))
 save(output, file=sprintf("outputjackknife%s.Rda", job_id))
 
-time_min <- (proc.time() - ptm)[3]/60
-time_min
+#time_min <- (proc.time() - ptm)[3]/60
+#time_min
