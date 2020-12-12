@@ -55,6 +55,10 @@ for(x in 1:length(names)){
   }
 }
 
+##write this out
+
+write.csv(Fstat,"Individual_SNP_Fstatistics.csv")
+
 #import and sort out correlations (NB - correltations are calculated from ALSPAC data and therefore not currently publicly avaliable)
 
 correlations <- read_excel("correlations.xlsx")
@@ -206,20 +210,6 @@ for(s in 1:68){
 
 maincorrelations <- correlations
 corr <- correlations[c(subexp), c(subexp)]
-diff <- 1 - corr
 
-s = 0
+s <- "0"
 var.corr <- cbind(s, MR.results)
-
-for(s in c(-0.3, -0.2, -0.1, 0.1, 0.2, 0.3)) {
-correlations <- corr + s*diff 
-
-temp <- MRfunction_jk(subexp)
-var.corr <- rbind(var.corr, cbind(s,temp))
-
-}
-
-diffvariances <- data.frame(var.corr)
-
-save(diffvariances, file = "varyingcorr.Rda")
-
